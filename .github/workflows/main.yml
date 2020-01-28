@@ -11,6 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a one-line script
       run: |
+        git remote add github "https://$COMMITER_USERNAME:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
         git config --global user.email "andymckay+actions@github.com"
         git config --global user.name "Andy McKay via Actions"
         git branch something-else
