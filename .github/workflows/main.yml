@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: |
+        git branch something-else
+        git checkout something-else
+        echo "foo" >> README.md
+        git commit -m "Automated changes" -a
+        git push --set-upstream origin something-else
+        
+        
